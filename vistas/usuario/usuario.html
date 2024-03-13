@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+       /* Estilos personalizados para el navbar */
+       nav {
+            background-color: #ffffff; /* Fondo blanco */
+            border-bottom: 2px solid #333; /* Borde gris oscuro */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+        }
+        nav a {
+            color: black !important; /* Color de texto gris oscuro */
+            font-weight: bold !important;
+        }
+        nav a:hover {
+            color: #ff0000 !important; /* Cambio de color al pasar el ratón por encima (rojo) */
+            font-weight: bold !important;
+        }
+
+        /* Estilos para el contenedor */
+        .contenedor {
+            display: flex;
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical */
+            height: 100vh; /* 100% de la altura de la ventana */
+            border: 2px solid #333; /* Borde para el contenedor (opcional) */
+        }
+
+        /* Estilos para la imagen */
+        .imagen-centrada {
+            max-width: 100%; /* Para que la imagen no sea más grande que el contenedor */
+            max-height: 100%; /* Para que la imagen no sea más alta que el contenedor */
+        }
+        
+    </style>
+</head>
+<body>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Quienes somos</a></li>
+        <li><a href="#!">Servicios</a></li>
+        <li><a href="#!">Nuestras sedes</a></li>
+        <li><a href="#!">Como Funciona</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="../inicio/inicio.html" class="brand-logo right"><img class="responsive-img" style="width: 110px; " src="../../recursos/images/logo.png" /></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="../usuario/usuarios.html">Usuarios</a></li>
+                <li><a href="../cliente/cliente.html">Clientes</a></li>
+                <li><a href="../trabajador/trabajadores.html">Trabajadores</a></li>
+                <li><a href="../notificacion/notificacion.html">Notificaciones</a></li>
+                <li><a href="../ordentrabajo/requerimientos.html">Requerimientos</a></li>
+                <li><a href="../ordentrabajo/ordenes.html">Ordenes de trabajo</a></li>
+                <!-- <li><a href="soporte.html">Soporte</a></li> -->
+                <li>
+                    <a class="dropdown-trigger" href="#" data-target="dropdown1">Conocenos mas<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+                <li><a href="../login/login.html" >Cerrar sesion</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <center><h5 >USUARIO</h5></center>        
+        <form id="UsuarioForm">
+            <input id="id_usuario" name="id_usuario" type="text" hidden>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <label for="nombres">Nombres</label>
+                    <input id="nombres" name="nombres" type="text" class="validate" required>
+                    
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="apellidos" name="apellidos" type="text" class="validate" required>
+                    <label for="apellidos">Apellidos</label>
+                </div>
+            </div>
+            <div class="row">               
+                <div class="input-field col s12 m6">
+                  <select class="browser-default" id="id_tipo_documento" name="id_tipo_documento" required>
+                    <option value="" disabled selected>Tipo Documento</option>
+                    <option value="1">CEDULA</option>
+                    <option value="2">NUI</option>
+                  </select>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="cedula" name="cedula" type="text" class="validate" pattern="[0-9]{10}" required >
+                    <label for="cedula">Documento</label>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="input-field col s12 m6">
+                    <input id="celular" name="celular" type="text" class="validate" pattern="[0-9]{10}" required >
+                    <label for="celular">Celular</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="correo" name="correo" type="text" class="validate" required>
+                    <label for="correo">Correo</label>
+                </div>
+            </div>
+            <div class="row">                
+                <div class="input-field col s12 m6">
+                    <input id="direccion" name="direccion" type="text" class="validate" required>
+                    <label for="direccion">Direccion</label>
+                </div>                
+            </div>
+            <div class="row">                
+                <div class="input-field col s12 m6">
+                    <input id="login" name="login" type="text" class="validate" required>
+                    <label for="login">Login</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="password" name="password" type="text" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <select class="browser-default" id="id_perfil" name="id_perfil" required>
+                      <option value="" disabled selected>Perfil</option>
+                      <option value="1">ADMINISTRADOR</option>
+                      <option value="2">MECANICO</option>
+                      <option value="3">ALMACEN</option>
+                      <option value="4">VENDEDOR</option>
+                    </select>
+                </div>
+                <div class="input-field col s12 m6">
+                    <select class="browser-default" id="id_estado" name="id_estado" required>
+                      <option value="" disabled selected>Estado</option>
+                      <option value="1">ACTIVO</option>
+                      <option value="2">INACTIVO</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col s6">
+                    <button class="btn waves-effect waves-light right" type="submit">Guardar</button>
+                </div>
+                <div class="col s6">
+                    <button class="btn waves-effect waves-light red" id="cancelButton" type="button">Cancelar</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    <script src="../../js/usuario/usuario.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializa el datepicker
+        var datepicker = document.querySelector('.datepicker');
+        var currentDate = new Date(); // Obtiene la fecha actual
+
+        var options = {
+            defaultDate: currentDate,
+            setDefaultDate: true,
+            format: 'yyyy-mm-dd',
+            autoClose: true
+        };
+
+        M.Datepicker.init(datepicker, options);
+
+         // Agregar evento keyup a los campos de nombre y apellido
+         var nombresInput = document.getElementById('nombres');
+        var apellidosInput = document.getElementById('apellidos');
+        var correoInput = document.getElementById('correo');
+        var direccionInput = document.getElementById('direccion');
+
+        nombresInput.addEventListener('keyup', function() {
+            this.value = this.value.toUpperCase(); // Convertir a mayúsculas
+        });
+        apellidosInput.addEventListener('keyup', function() {
+            this.value = this.value.toUpperCase(); // Convertir a mayúsculas
+        });
+        correoInput.addEventListener('keyup', function() {
+            this.value = this.value.toUpperCase(); // Convertir a mayúsculas
+        });
+        direccionInput.addEventListener('keyup', function() {
+            this.value = this.value.toUpperCase(); // Convertir a mayúsculas
+        });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get('id');
+
+        // Ahora puedes utilizar el ID del usuario como desees en tu formulario
+        console.log('ID del usuario:', userId);
+        if (userId !== null) {
+            // Realizar la solicitud GET al servidor para obtener los datos del usuario
+            fetch(`obtener_usuario.php?id=${userId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Manejar la respuesta (datos del usuario)
+                console.log('Datos del usuario:', data);
+
+                // Aquí puedes utilizar los datos del usuario como desees
+                // Por ejemplo, puedes completar los campos del formulario con estos datos
+                document.getElementById('nombres').value = data.nombres;
+                document.getElementById('apellidos').value = data.apellidos;
+                document.getElementById('id_tipo_documento').value = data.id_tipo_documento;
+                document.getElementById('cedula').value = data.cedula;
+                document.getElementById('celular').value = data.celular;
+                document.getElementById('correo').value = data.correo;
+                document.getElementById('direccion').value = data.direccion;
+                document.getElementById('id_perfil').value = data.id_perfil;
+                document.getElementById('id_estado').value = data.id_estado;
+                document.getElementById('login').value = data.login;
+                document.getElementById('password').value = data.login;
+                document.getElementById('id_usuario').value = data.id_usuario;
+                
+
+                document.getElementById('apellidos').focus();
+                document.getElementById('id_tipo_documento').focus();
+                document.getElementById('cedula').focus();
+                document.getElementById('celular').focus();
+                document.getElementById('correo').focus();
+                document.getElementById('direccion').focus();
+                document.getElementById('id_perfil').focus();
+                document.getElementById('id_estado').focus();
+                document.getElementById('login').focus();
+                document.getElementById('password').focus();
+                document.getElementById('nombres').focus();
+
+                // Y así sucesivamente para cada campo del formulario
+                
+            })
+            .catch(error => {
+                // Manejar errores de la solicitud
+                console.error('Error al obtener los datos del usuario:', error);
+            });
+        }
+
+
+        
+
+  
+    });
+    // Inicializar el dropdown
+    $(document).ready(function(){
+        $(".dropdown-trigger").dropdown();
+    });
+</script>
+
+</body>
+</html>

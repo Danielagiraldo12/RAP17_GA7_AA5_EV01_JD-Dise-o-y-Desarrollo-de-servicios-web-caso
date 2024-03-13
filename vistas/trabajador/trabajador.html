@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+       /* Estilos personalizados para el navbar */
+       nav {
+            background-color: #ffffff; /* Fondo blanco */
+            border-bottom: 2px solid #333; /* Borde gris oscuro */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+        }
+        nav a {
+            color: black !important; /* Color de texto gris oscuro */
+            font-weight: bold !important;
+        }
+        nav a:hover {
+            color: #ff0000 !important; /* Cambio de color al pasar el ratón por encima (rojo) */
+            font-weight: bold !important;
+        }
+
+        /* Estilos para el contenedor */
+        .contenedor {
+            display: flex;
+            justify-content: center; /* Centrado horizontal */
+            align-items: center; /* Centrado vertical */
+            height: 100vh; /* 100% de la altura de la ventana */
+            border: 2px solid #333; /* Borde para el contenedor (opcional) */
+        }
+
+        /* Estilos para la imagen */
+        .imagen-centrada {
+            max-width: 100%; /* Para que la imagen no sea más grande que el contenedor */
+            max-height: 100%; /* Para que la imagen no sea más alta que el contenedor */
+        }
+        
+    </style>
+</head>
+<body>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Quienes somos</a></li>
+        <li><a href="#!">Servicios</a></li>
+        <li><a href="#!">Nuestras sedes</a></li>
+        <li><a href="#!">Como Funciona</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="../inicio/inicio.html" class="brand-logo right"><img class="responsive-img" style="width: 110px; " src="../../recursos/images/logo.png" /></a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="../usuario/usuarios.html">Usuarios</a></li>
+                <li><a href="../cliente/cliente.html">Clientes</a></li>
+                <li><a href="../trabajador/trabajadores.html">Trabajadores</a></li>
+                <li><a href="../notificacion/notificacion.html">Notificaciones</a></li>
+                <li><a href="../ordentrabajo/requerimientos.html">Requerimientos</a></li>
+                <li><a href="../ordentrabajo/ordenes.html">Ordenes de trabajo</a></li>
+                <!-- <li><a href="soporte.html">Soporte</a></li> -->
+                <li>
+                    <a class="dropdown-trigger" href="#" data-target="dropdown1">Conocenos mas<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+                <li><a href="../login/login.html" >Cerrar sesion</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <center><h5 >TRABAJADOR</h5></center>
+        
+        <form>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input id="nombre" type="text" class="validate">
+                    <label for="nombre">Nombre cliente</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="Apellidos" type="text" class="validate">
+                    <label for="Apellidos">Apellidos</label>
+                </div>
+            </div>
+            <div class="row">               
+                <div class="input-field col s12 m6">
+                  <select class="browser-default" id="tipodoc">
+                    <option value="" disabled selected>Tipo Documento</option>
+                    <option value="1">Llamada telefónica</option>
+                    <option value="2">Mensaje de texto</option>
+                    <option value="3">Email</option>
+                  </select>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="cedula" type="text" class="validate">
+                    <label for="cedula">Cedula</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input id="direccion" type="text" class="validate">
+                    <label for="direccion">Direccion</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="celular" type="text" class="validate">
+                    <label for="celular">Celular</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input id="correo" type="text" class="validate">
+                    <label for="correo">Correo</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <button class="btn waves-effect waves-light right" type="submit">Guardar</button>
+                </div>
+                <div class="col s6">
+                    <button class="btn waves-effect waves-light red" type="reset">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Inicializar el dropdown
+        $(document).ready(function(){
+            $(".dropdown-trigger").dropdown();
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+                // Inicializa el datepicker
+                var datepicker = document.querySelector('.datepicker');
+                var currentDate = new Date(); // Obtiene la fecha actual
+
+                var options = {
+                    defaultDate: currentDate,
+                    setDefaultDate: true,
+                    format: 'yyyy-mm-dd',
+                    autoClose: true
+                };
+
+                M.Datepicker.init(datepicker, options);
+            });
+
+      
+    </script>
+</body>
+</html>
